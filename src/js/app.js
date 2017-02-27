@@ -6,6 +6,7 @@ import Context from "./models/context";
 
 import Arduino from "./clusters/arduino";
 import Twitter from "./clusters/twitter";
+import Api from "./clusters/api";
 
 import * as Utils from "./helpers/utils";
 import logger from "./helpers/log";
@@ -19,6 +20,7 @@ import _ from 'lodash/array';
  * Les clusters Node
  */
 var clusterArduino;
+var clusterApi;
 var clusterTwitter;
 
 /*
@@ -42,6 +44,10 @@ if (cluster.isWorker) {
     logger.log('info', 'Création du cluster Arduino');
     Arduino.process = process;
     process.on('message', Arduino.messageHandler);
+  } else if (process.env['type'] == Configuration.processConst.TYPE.CLUSTER_API) {
+    logger.log('info', 'Création du cluster Api');
+    Api.process = process;
+    process.on('message', Api.messageHandler);
   }
 }
 
@@ -52,9 +58,6 @@ if (cluster.isWorker) {
 
 if (cluster.isMaster) {
 
-  // Mise à jour des paliers
-  context.gamification = Utils.getGamification();
-
   // Mise à jour du nombre de tweet reçu
   Utils.getCurrentRank(context);
 
@@ -63,6 +66,9 @@ if (cluster.isMaster) {
 
   // Fork workers.
   clusterArduino = cluster.fork({ type: Configuration.processConst.TYPE.CLUSTER_ARDUINO });
+
+  // Fork workers.
+  clusterApi = cluster.fork({ type: Configuration.processConst.TYPE.CLUSTER_API });
 
   // Ajout du handler message pour le cluster Twitter
   clusterTwitter.on('message', function (msg) {
@@ -105,7 +111,7 @@ if (cluster.isMaster) {
           logger.log('info', "Demande au worker Arduino d'afficher le tweet");
           context.tweetDisplayed = tweet;
           context.isTweetDisplayed = true;
-          clusterArduino.send(tweet);
+          clusterArduino.send({ action: Configuration.processConst.ACTION.PRINT_TWEET, param: tweet});
         }
       }
     }
@@ -139,7 +145,7 @@ if (cluster.isMaster) {
         let freshTweet = context.freshTweets[0];
         if (!context.isTweetDisplayed && context.tweetDisplayed != freshTweet && context.isLeaSpeaking) {
           context.isTweetDisplayed = true;
-          clusterArduino.send(freshTweet);
+          clusterArduino.send({ action: Configuration.processConst.ACTION.PRINT_TWEET, param: freshTweet});
         }
       }
 
@@ -155,7 +161,7 @@ if (cluster.isMaster) {
         if (context.historicTweets.length > 0) {
           let historicTweet = context.historicTweets[Utils.getRandomInt(0, context.historicTweets.length - 1)];
           context.isTweetDisplayed = true;
-          clusterArduino.send(historicTweet);
+          clusterArduino.send({ action: Configuration.processConst.ACTION.PRINT_TWEET, param: Utils.generateDataArduino(historicTweet)});
         }
       }
 
@@ -165,18 +171,22 @@ if (cluster.isMaster) {
   // Quand le worker arduino est opérationnel, nous affichons le tweet de bienvenue ainsi que
   // l'accompagnement vocal
   clusterArduino.on('online', function (worker) {
-    clusterArduino.send(Utils.generateStartUpTweet());
+    clusterArduino.send({ action: Configuration.processConst.ACTION.PRINT_TWEET, param: Utils.generateDataArduino(Utils.generateStartUpTweet()) });
   });
-
+ 
   // Temps de latence pour permettre l'initialisation des workers avant de lancer l'API streaming
   // Twitter
   clusterTwitter.on('online', function (worker) {
     logger.log('info', 'Twitter est sur écoute ...');
     clusterTwitter.send({ action: Configuration.processConst.ACTION.LISTEN_TWEET });
   });
-/*  setTimeout(function () {
-    logger.log('info', 'Twitter est sur écoute ...');
-    clusterTwitter.send({ action: Configuration.processConst.ACTION.LISTEN_TWEET });
-  }, 1000);*/
 
+  clusterApi.on('online', function (worker) {
+    clusterApi.send({cluster: worker});
+  });
+  clusterApi.on('message', function (msg) {
+    console.log('message cluster API');
+    console.log(msg); 
+  });
 }
+

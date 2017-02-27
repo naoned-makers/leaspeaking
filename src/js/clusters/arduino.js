@@ -25,30 +25,42 @@ function Arduino () {
  * @param data les données à écrire sur le port série
  */
 Arduino.messageHandler = function(msg) {
-  // Envoi du tweet par le port série avec serialPort
-  if (arduinoPort == '' || arduinoPort == undefined) {
-    // Détermination du port de communication de l'Arduino
-    logger.log('info', "Le port de l'Arduino est absent. Il faut le déterminer...");
-    getCurrentPort(msg);
-  } else {
-    // Ecriture sur le port série de l'Arduino
-    logger.log('info', "Ecriture sur le port série de l'Arduino");
-    writeDataOnArduinoSerial(msg);
-  }
+  
+    // Envoi du tweet par le port série avec serialPort
+    if (arduinoPort == '' || arduinoPort == undefined) {
+      // Détermination du port de communication de l'Arduino
+      logger.log('info', "Le port de l'Arduino est absent. Il faut le déterminer...");
+      getCurrentPort(msg);
+    } else {
+      // Ecriture sur le port série de l'Arduino
+      logger.log('info', "Ecriture sur le port série de l'Arduino");
+      if (msg.action == Configuration.processConst.ACTION.PRINT_TWEET) {
+        writeDataOnArduinoSerial(msg);
+      } else if (msg.action == Configuration.processConst.ACTION.SPECIAL_MOVE) {
+        doLeaSpecialMove(msg);
+      }
+    }
 };
+
+function doLeaSpecialMove(msg) {
+  console.log("Coucou je vais bouger le bras gauche");
+}
 
 /**
  * Détermine quel port correspond à l'arduino
  * @param msg
  */
 function getCurrentPort(msg) {
+  let foundArduino = false;
   SerialPort
     .list(function(err, result) {
       result
         .filter(function(val) {
           if (val.manufacturer && val.manufacturer.toLowerCase().startsWith("arduino")) {
+            foundArduino = true;
             arduinoPortName = val.comName;
             arduinoPort = new SerialPort(arduinoPortName);
+             
             arduinoPort.on('open', function() {
               writeDataOnArduinoSerial(msg);
             });
@@ -56,11 +68,13 @@ function getCurrentPort(msg) {
             arduinoPort.on('error', function(err) {
               logger.log('error', 'Error: ', err.message);
             });
-          } else {
-            logger.log('error', 'Impossible de trouver un arduino connecté....')
           }
         });
+        if (!foundArduino) {
+          logger.log('error', 'Impossible de trouver un arduino connecté....');
+        }
     });
+  
 }
 
 /**

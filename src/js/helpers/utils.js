@@ -7,11 +7,10 @@ import logger from "../helpers/log";
 
 // Le modèle Tweet
 import Tweet from "../models/tweet";
+import Arduino from '../models/arduino';
 
 import Configuration from "../config/configuration";
 import { playSound } from './sound';
-
-import { gamification } from '../../../config';
 
 /**
  * Renvoie un nombre aléatoire compris entre le min et le max.
@@ -67,27 +66,6 @@ export const fillTweetRank = (tweet, rank) => {
   }
 };
 
-/**
- * Renvoie les paliers gagnants.
- */
-export const getGamification = () => gamification;
-
-/**
- * Indique si le tweet courant est gagnant en atteignant un palier
- * particulier. Ces paliers sont dynamiques et sont rechargé à chaque
- * lecture de tweet.
- *
- * @returns {boolean} true si le tweet est gagnant, false sinon
- */
-export const isTweetWinner = (gamification, rank) => {
-  let result = null;
-  for (let prop in gamification) {
-    if (rank == gamification[prop].rank) {
-      result = gamification[prop];
-    }
-  }
-  return result
-};
 
 /**
  * Sauvegarde le tweet courant.
@@ -203,4 +181,14 @@ export const generateStartUpTweet = () => {
 export const generateStartTweet = () => {
   logger.log('debug', 'Je génére un tweet de démarrage');
   return generateTweet(Configuration.TEXT_LEA_START);
+};
+
+
+/**
+ * Génère et renvoie un les données utile pour Léa
+ * @returns {Arduino}
+ */
+export const generateDataArduino = (tweet) => {
+  logger.log('debug', 'Génération des données à destination de Léa');
+  return new Arduino(tweetReceived.LCDText, tweetReceived.motion);
 };
