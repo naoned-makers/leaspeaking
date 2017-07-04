@@ -16,7 +16,8 @@ Configuration.ADMINS = [
   "fwlodarezack",
   "adrienlasselle",
   "ahoudre",
-  "devfest_lea"
+  "devfest_lea",
+  "lea_nmakers"
 ];
 // Configuration.ADMINS = ["thedireizh", "lynchmaniacPL", "devfest_lea", "fwlodarezack", "ahoudre",
 // "AdrienLASSELLE"]; Configuration.ADMINS = ["thedireizh", "lynchmaniacPL", "fwlodarezack",
@@ -42,7 +43,7 @@ Configuration.TWEETS_DB = 'tweets.json';
  * Constante représentant les textes des tweets pour arrêter ou démarrer léa
  * Cela représente aussi le texte qu'affiche Léa quand elle est en pause.
  */
-Configuration.USER_TWITTER = '@devfest_lea';
+Configuration.USER_TWITTER = '@lea_nmakers';
 Configuration.TWEET_LEA_START = Configuration.USER_TWITTER + ' start';
 Configuration.TWEET_LEA_STOP = Configuration.USER_TWITTER + ' stop';
 

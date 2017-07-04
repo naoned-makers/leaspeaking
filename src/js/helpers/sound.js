@@ -31,9 +31,10 @@ export const chooseSound = (tweet) => {
 }
 
 export const playSound = (file) => {
-  if (fs.existsSync('sounds/' + file + '.mp3')) {
+  if (fs.existsSync('./assets/sounds/' + file + '.mp3')) {
+    logger.log('Lecture du morceau ' + file);
     fs
-      .createReadStream('sounds/' + file + '.mp3')
+      .createReadStream('./assets/sounds/' + file + '.mp3')
       .pipe(new lame.Decoder())
       .on('format', function(format) {
         this.pipe(new Speaker(format));

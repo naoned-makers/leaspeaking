@@ -28,7 +28,7 @@ Twitter.streamTwitter = function() {
     "access_token_secret": process.env.TWITTER_ACCESS_TOKEN_SECRET
   });
   logger.log('debug', "Création du client Twitter...");
-  let stream = client.stream('statuses/filter', {track: 'devfest_lea'});
+  let stream = client.stream('statuses/filter', {track: 'lea_nmakers'});
 
   stream.on('data', function(tweetReceived) {
     logger.log('debug', "On a reçu un tweet");
