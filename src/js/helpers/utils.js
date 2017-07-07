@@ -161,7 +161,7 @@ export const startAndStopLea = (tweet, clusterArduino, context) => {
       logger.log('debug', 'tweet de start');
       tweet.isSpecial = true;
       context.isLeaSpeaking = true;
-      playSound("bienvenue");
+      playSound("bonjourMakerFaire");
       clusterArduino.send(generateStartTweet());
     }
   }

@@ -23,7 +23,9 @@ export const chooseSound = (tweet) => {
   if (!result) {
     // On n'a pas trouvé de son "spécial easter egg" Il faut du coup choisir un son au hasard
     let indice = getRandomInt(0, Configuration.sounds.length - 1);
+    console.log('indice du morceau ' + indice); 
     result = Configuration.sounds[indice].mp3;
+    console.log('nom du morceau '+ result); 
   } else {
     result = result.mp3;
   }

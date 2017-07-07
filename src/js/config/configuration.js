@@ -50,7 +50,7 @@ Configuration.TWEET_LEA_STOP = Configuration.USER_TWITTER + ' stop';
 Configuration.TEXT_LEA_PAUSE = '  Lea est en pause     elle se repose';
 
 Configuration.TEXT_LEA_START = '  Tweetez moi sur                          ' + Configuration.USER_TWITTER;
-Configuration.TEXT_LEA_START_UP = '  Prete a participer                          au Devfest';
+Configuration.TEXT_LEA_START_UP = '  Prete a participer                          au MakerFaire';
 Configuration.TEXT_LEA_DEMO_ON = 'demo on';
 Configuration.TEXT_LEA_DEMO_OFF = 'demo off';
 
@@ -159,28 +159,24 @@ Configuration.easterEggs = [
 
 Configuration.sounds = [
   {
-    text: "perdu voix",
-    alternativeText: Configuration.USER_TWITTER + " perdu voix",
-    mp3: "perdu_voix"
+    text: "aboTwitter",
+    alternativeText: Configuration.USER_TWITTER + " aboTwitter",
+    mp3: "aboTwitter"
   }, {
-    text: "perdu loose",
-    alternativeText: Configuration.USER_TWITTER + " perdu loose",
-    mp3: "perdu_loose"
+    text: "jouerLeo",
+    alternativeText: Configuration.USER_TWITTER + " jouer Leo",
+    mp3: "jouerLeo"
   }, {
-    text: "perdu trombone",
-    alternativeText: Configuration.USER_TWITTER + " perdu trombone",
-    mp3: "perdu_trombone"
+    text: "jouerNeo",
+    alternativeText: Configuration.USER_TWITTER + " jouer Neo",
+    mp3: "jouerNeo"
   }, {
-    text: "perdu r2d2",
-    alternativeText: Configuration.USER_TWITTER + " perdu r2d2",
-    mp3: "perdu_r2d2"
+    text: "merciParticipation",
+    alternativeText: Configuration.USER_TWITTER + " merci participation",
+    mp3: "merciParticipation"
   }, {
-    text: "perdu mario",
-    alternativeText: Configuration.USER_TWITTER + " perdu mario",
-    mp3: "perdu_mario"
-  }, {
-    text: "perdu motus",
-    alternativeText: Configuration.USER_TWITTER + " perdu motus",
-    mp3: "perdu_motus"
+    text: "merciTweet",
+    alternativeText: Configuration.USER_TWITTER + " merci tweet",
+    mp3: "merciTweet"
   }
 ];
