@@ -9,7 +9,7 @@ import Twitter from "./clusters/twitter";
 
 import * as Utils from "./helpers/utils";
 import logger from "./helpers/log";
-
+//import { playSound } from './helpers/sound';
 // lodash
 import _ from 'lodash/array';
 
@@ -20,7 +20,7 @@ import _ from 'lodash/array';
  */
 var clusterArduino;
 var clusterTwitter;
-
+//playSound("bonjourMakerFaire.1");
 /*
  * Le contexte d'exécution du master
  */
