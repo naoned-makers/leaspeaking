@@ -5,9 +5,9 @@ import fs from 'fs';
 import logger from "../helpers/log";
 
 // Audio
-import lame from 'lame';
-import Speaker from 'speaker';
-import StreamPlayer from 'stream-player';
+//import lame from 'lame';
+//import Speaker from 'speaker';
+//import StreamPlayer from 'stream-player';
 
 export const chooseSound = (tweet) => {
   let result = Configuration
@@ -31,24 +31,9 @@ export const chooseSound = (tweet) => {
 }
 
 export const playSound = (file) => {
-  if (fs.existsSync('./assets/sounds/' + file + '.mp3')) {
-    logger.log('Lecture du morceau ' + file);
-    fs
-      .createReadStream('./assets/sounds/' + file + '.mp3')
-      .pipe(new lame.Decoder())
-      .on('format', function(format) {
-        this.pipe(new Speaker(format));
-      });
-  } else {
-    logger.log('error', 'Aucun fichier son existe sous le nom : ' + file);
-  }
+  console.log('je joue le son ', file);
+  var exec = require('child_process').exec;
+  let soundFile = './assets/sounds/' + file + '.mp3';
+  exec("omxplayer --adev alsa " + soundFile); 
 }
 
-export const playSong = (song) => {
-  let player = new StreamPlayer();
-
-  // Ajout de la chanson à jouer
-  player.add(song);
-  // début de la lecture
-  player.play();
-}
