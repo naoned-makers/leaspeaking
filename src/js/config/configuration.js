@@ -14,9 +14,8 @@ Configuration.ADMINS = [
   "thedireizh",
   "lynchmaniacpl",
   "fwlodarezack",
-  "adrienlasselle",
-  "ahoudre",
-  "devfest_lea",
+  "batiot",
+  "rguillome",
   "lea_nmakers"
 ];
 // Configuration.ADMINS = ["thedireizh", "lynchmaniacPL", "devfest_lea", "fwlodarezack", "ahoudre",
@@ -50,7 +49,7 @@ Configuration.TWEET_LEA_STOP = Configuration.USER_TWITTER + ' stop';
 Configuration.TEXT_LEA_PAUSE = '  Lea est en pause     elle se repose';
 
 Configuration.TEXT_LEA_START = '  Tweetez moi sur                          ' + Configuration.USER_TWITTER;
-Configuration.TEXT_LEA_START_UP = '  Prete a participer                          au MakerFaire';
+Configuration.TEXT_LEA_START_UP = ' Prete a participer          au          Nantes Maker Campus';
 Configuration.TEXT_LEA_DEMO_ON = 'demo on';
 Configuration.TEXT_LEA_DEMO_OFF = 'demo off';
 
