@@ -102,17 +102,9 @@ Configuration.easterEggs = [
     alternativeText: Configuration.USER_TWITTER + " lot3",
     mp3: "gagnant_voix"
   }, {
-    text: "perdu",
-    alternativeText: Configuration.USER_TWITTER + " perdu",
-    mp3: "perdu_voix"
-  }, {
     text: "dora",
     alternativeText: Configuration.USER_TWITTER + " dora",
     mp3: "gagnant_dora"
-  }, {
-    text: "felicitations",
-    alternativeText: Configuration.USER_TWITTER + " felicitations",
-    mp3: "gagnant_gilbert"
   }, {
     text: "formidable",
     alternativeText: Configuration.USER_TWITTER + " formidable",
@@ -125,30 +117,6 @@ Configuration.easterEggs = [
     text: "the best",
     alternativeText: Configuration.USER_TWITTER + " the best",
     mp3: "simply the best"
-  }, {
-    text: "perdu voix",
-    alternativeText: Configuration.USER_TWITTER + " perdu voix",
-    mp3: "perdu_voix"
-  }, {
-    text: "perdu monstre",
-    alternativeText: Configuration.USER_TWITTER + " perdu monstre",
-    mp3: "perdu_monstre"
-  }, {
-    text: "perdu trombone",
-    alternativeText: Configuration.USER_TWITTER + " perdu trombone",
-    mp3: "perdu_trombone"
-  }, {
-    text: "perdu zombie attack",
-    alternativeText: Configuration.USER_TWITTER + " perdu zombie attack",
-    mp3: "perdu_zombie_attack"
-  }, {
-    text: "perdu zombie loose",
-    alternativeText: Configuration.USER_TWITTER + " perdu zombie loose",
-    mp3: "perdu_zombie_loose"
-  }, {
-    text: "gagne",
-    alternativeText: Configuration.USER_TWITTER + " gagne",
-    mp3: "gagnant_mireille"
   }, {
     text: "champion",
     alternativeText: Configuration.USER_TWITTER + " champion",

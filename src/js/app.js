@@ -92,7 +92,7 @@ if (cluster.isMaster) {
         if (!Utils.isAdmin(tweet.screenName)) {
           gamificationLevel = Utils.isTweetWinner(context.gamification, context.rank);
         }
-        if (gamificationLevel != null && tweet.fresh) {
+        /*if (gamificationLevel != null && tweet.fresh) {
           clusterTwitter.send({ action: Configuration.processConst.ACTION.SEND_TWEET, winner: tweet.screenName, rank: context.rank });
           tweet.motion = gamificationLevel.motion;
           tweet.sound = gamificationLevel.sound;
@@ -100,7 +100,8 @@ if (cluster.isMaster) {
           gamificationLevel = null;
         } else {
           tweet.motion = Utils.getRandomMotion(tweet.sound);
-        }
+        }*/
+        tweet.motion = Utils.getRandomMotion(tweet.sound);
         logger.log('debug', 'Le tweet à afficher : ');
         logger.log('debug', tweet);
         if (!context.isTweetDisplayed) {

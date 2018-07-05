@@ -84,7 +84,7 @@ Twitter.messageHandler = function(msg) {
   if (msg.action == Configuration.processConst.ACTION.LISTEN_TWEET) {
     Twitter.streamTwitter();
   } else if (msg.action == Configuration.processConst.ACTION.SEND_TWEET) {
-    Twitter.sendTweet(msg.winner);
+    //Twitter.sendTweet(msg.winner);
   }
 };
 
