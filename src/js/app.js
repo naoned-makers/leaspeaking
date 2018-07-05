@@ -20,7 +20,7 @@ import _ from 'lodash/array';
  */
 var clusterArduino;
 var clusterTwitter;
-playSound("bonjourMakerFaire.1");
+playSound("BienvenueJoyeux");
 
 
 /*
