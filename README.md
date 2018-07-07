@@ -26,9 +26,21 @@ Ensuite il suffit d'installer simplement leaspeaking ainsi
 npm install leaspeaking
 ```
 
-Pour installer la paartie speaker sur Windows il faut ajouter
+Deprecated:
+Pour installer la partie speaker sur Windows il faut ajouter
 npm install --global --production windows-build-tools
 avoir Python => voir https://github.com/nodejs/node-gyp
+
+## Lancement pour le Nantes Maker Campus
+
+Se connecter sur le RPI, SSID Lea avec mot de passe habituel.
+Aller dans le répertoire ~/dev/lea/leaspeaking
+Faire un npm start 
+
+Une fois lancé Léa affiche "Prete pour le nantes maker campus"
+Faire le tweet de lancement avec un tweet : "@lea_nmakers start"
+
+Léa est prête à fonctionner
 
 ## Connexion avec l'enceinte bluetooth
 
