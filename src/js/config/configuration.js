@@ -18,15 +18,11 @@ Configuration.ADMINS = [
   "rguillome",
   "lea_nmakers"
 ];
-// Configuration.ADMINS = ["thedireizh", "lynchmaniacPL", "devfest_lea", "fwlodarezack", "ahoudre",
-// "AdrienLASSELLE"]; Configuration.ADMINS = ["thedireizh", "lynchmaniacPL", "fwlodarezack",
-// "ahoudre", "AdrienLASSELLE"];
 
 /*
  * Listes des commandes d'action pour Léa
  */
 Configuration.CLASSIC_MOTIONS = ["KUNG_FU_PANDA", "SHAOLIN_SOCCER"];
-//Configuration.CLASSIC_MOTIONS = ["AMELIE_POULAIN", "TWIN_PEAKS"];
 
 /*
  * Fichier contenant le nombre de tweets reçu

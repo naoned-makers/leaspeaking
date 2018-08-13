@@ -102,51 +102,7 @@ describe("renseigne le rang du tweet avec la valeur courante", function () {
 
 });
 
-// Test isTweetWinner function
-describe("indique si le tweet reçu est gagnant", function () {
 
-  let context = new Context();
-
-  // Create gamification database
-  beforeEach(function () {
-    spyOn(Utils, 'getGamification')
-      .and
-      .returnValue({
-        "level_1": {
-          "rank": 5,
-          "motion": "WINNER",
-          "sound": "gagnant_Dora"
-        }
-      });
-    context.gamification = Utils.getGamification();
-  });
-
-  it("Ne devrait pas être un tweet gagnant", function () {
-    context.rank = 0;
-    let result = Utils.isTweetWinner(context.gamification, context.rank);
-    expect(result).toBe(null);
-  });
-
-  it("Devrait être un tweet gagnant", function () {
-    context.rank = 5;
-    let result = Utils.isTweetWinner(context.gamification, context.rank);
-    expect(result)
-      .not
-      .toBe(null);
-    expect(result.rank).toEqual(jasmine.any(Number));
-    expect(result.rank).toBe(5);
-    expect(result.motion).toBe("WINNER");
-    expect(result.sound).toBe("gagnant_Dora");
-  });
-
-  it("Ne devrait pas être un tweet gagnant avec une config KO", function () {
-    context.rank = 5;
-    context.gamification = null;
-    let result = Utils.isTweetWinner(context.gamification, context.rank);
-    expect(result).toBe(null);
-  });
-
-});
 
 // Test saveTweet function
 describe("sauvegarde le tweet passé en paramètre", function () {

@@ -42,10 +42,6 @@ export default class Context {
          */
         this._rank;
 
-        /*
-         * Liste des paliers gagnants
-         */
-        this.gamification;
 
         this.isDemoMode = true;
    }

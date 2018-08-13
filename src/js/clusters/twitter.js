@@ -83,20 +83,7 @@ Twitter.receivingTweet = function(tweetReceived) {
 Twitter.messageHandler = function(msg) {
   if (msg.action == Configuration.processConst.ACTION.LISTEN_TWEET) {
     Twitter.streamTwitter();
-  } else if (msg.action == Configuration.processConst.ACTION.SEND_TWEET) {
-    //Twitter.sendTweet(msg.winner);
   }
 };
 
-Twitter.sendTweet = function(winner) {
-  client
-    .post('statuses/update', {
-      status: 'Grâce à Lèa, @' + winner + ' a gagné un lot SQLi. Merci de venir le retirer sur le stand SQLi du Devfest.'
-    }, function(error, tweet, response) {
-      if (error) {
-        throw error;
-      }
-      logger.log('info', 'Un tweet gagnant a été envoyé');
-    });
-};
 module.exports = Twitter;

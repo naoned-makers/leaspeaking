@@ -11,8 +11,6 @@ import Tweet from "../models/tweet";
 import Configuration from "../config/configuration";
 import { playSound } from './sound';
 
-import { gamification } from '../../../config';
-
 /**
  * Renvoie un nombre aléatoire compris entre le min et le max.
  *
@@ -67,27 +65,6 @@ export const fillTweetRank = (tweet, rank) => {
   }
 };
 
-/**
- * Renvoie les paliers gagnants.
- */
-export const getGamification = () => gamification;
-
-/**
- * Indique si le tweet courant est gagnant en atteignant un palier
- * particulier. Ces paliers sont dynamiques et sont rechargé à chaque
- * lecture de tweet.
- *
- * @returns {boolean} true si le tweet est gagnant, false sinon
- */
-export const isTweetWinner = (gamification, rank) => {
-  let result = null;
-  for (let prop in gamification) {
-    if (rank == gamification[prop].rank) {
-      result = gamification[prop];
-    }
-  }
-  return result
-};
 
 /**
  * Sauvegarde le tweet courant.

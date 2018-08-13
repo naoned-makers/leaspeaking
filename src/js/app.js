@@ -13,7 +13,6 @@ import { playSound } from './helpers/sound';
 // lodash
 import _ from 'lodash/array';
 
-// import { gamification } from 'Config';
 
 /*
  * Les clusters Node
@@ -54,9 +53,6 @@ if (cluster.isWorker) {
 
 if (cluster.isMaster) {
 
-  // Mise à jour des paliers
-  context.gamification = Utils.getGamification();
-
   // Mise à jour du nombre de tweet reçu
   Utils.getCurrentRank(context);
 
@@ -87,20 +83,7 @@ if (cluster.isMaster) {
         Utils.updateAndSaveRankTweet(tweet, context);
         Utils.fillTweetRank(tweet, context.rank);
 
-        // On regarde si le tweet est gagnant
-        let gamificationLevel = null;
-        if (!Utils.isAdmin(tweet.screenName)) {
-          gamificationLevel = Utils.isTweetWinner(context.gamification, context.rank);
-        }
-        /*if (gamificationLevel != null && tweet.fresh) {
-          clusterTwitter.send({ action: Configuration.processConst.ACTION.SEND_TWEET, winner: tweet.screenName, rank: context.rank });
-          tweet.motion = gamificationLevel.motion;
-          tweet.sound = gamificationLevel.sound;
-          tweet.winner = true;
-          gamificationLevel = null;
-        } else {
-          tweet.motion = Utils.getRandomMotion(tweet.sound);
-        }*/
+
         tweet.motion = Utils.getRandomMotion(tweet.sound);
         logger.log('debug', 'Le tweet à afficher : ');
         logger.log('debug', tweet);
