@@ -31,9 +31,25 @@ Pour installer la partie speaker sur Windows il faut ajouter
 npm install --global --production windows-build-tools
 avoir Python => voir https://github.com/nodejs/node-gyp
 
-## Lancement pour le Nantes Maker Campus
+## Lancement de léa en mode exposition
 
-Se connecter sur le RPI, SSID Lea avec mot de passe habituel.
+### Lancement auto
+
+Léa a son propre service sur le Rpi. Il suffit donc de lancer le RPI et Léa doit donc s'allumer toute seule.
+Une fois lancé Léa affiche "Prete pour le nantes maker campus"
+Faire le tweet de lancement avec un tweet : "@lea_nmakers start"
+
+#### Implémentation
+Le fichier pour créer le service est à la racine du projet et se nomme lea. 
+Il faut copier ce fichier dans /etc/init.d puis le rendre exécutable (chmod +x /etc/init.d/lea).
+Puis créer les liens avec la commande (update-rc.d lea defaults). En cas de souci il est possible de supprimer le service avec update-rc.d lea remove.
+Attention la commande forever list ne semble plus fonctionner il faut aller dans /var/log/lea.log pour avoir des logs.
+De plus le service ne fait qu'exécuter le script donc en cas de changement de code il faut penser à relancer le webpack. 
+
+### Lancement manuel
+
+Créer un point d'accès nommé lea avec le mot de passe habituel.
+Se connecter sur le RPI (en général 192.168.43.58), SSID lea avec mot de passe habituel.
 Aller dans le répertoire ~/dev/lea/leaspeaking
 Faire un npm start 
 
