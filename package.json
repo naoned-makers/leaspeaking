@@ -19,7 +19,6 @@
     "jasmine-spec-reporter": "^3.0.0",
     "json-loader": "^0.5.4",
     "lodash": "^4.16.6",
-    "supertest": "1.1.0",
     "webpack": "^2.2.0"
   },
   "scripts": {
