@@ -1,7 +1,12 @@
 {
   "presets": [
-    ["es2015", {
-      "modules": "commonjs"
-    }]
+    [
+      "env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
   ]
 }

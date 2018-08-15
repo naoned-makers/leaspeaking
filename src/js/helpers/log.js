@@ -1,6 +1,6 @@
 import winston from 'winston';
 
-const logger = new winston.Logger({
+const logger = winston.createLogger({
   level: 'debug',
   transports: [
     new(winston.transports.Console)(),

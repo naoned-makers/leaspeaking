@@ -30,8 +30,7 @@ export default {
         use: ['babel-loader']
       }, {
         test: /\.json$/,
-        exclude: /node_modules/,
-        use: 'json-loader'
+        exclude: /node_modules/
       }
     ]
   },
