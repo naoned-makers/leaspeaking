@@ -1,5 +1,8 @@
 "use strict"
 
+import fs from 'fs';
+
+
 /**
  * Classe de configuration contenant l'ensemble des
  * constantes et des variables configurables
@@ -34,6 +37,8 @@ Configuration.RANK_FILE = 'rank.txt';
  */
 Configuration.TWEETS_DB = 'tweets.json';
 
+Configuration.WELCOME_MESSAGE = 'welcomeMessage.txt';
+
 /*
  * Constante représentant les textes des tweets pour arrêter ou démarrer léa
  * Cela représente aussi le texte qu'affiche Léa quand elle est en pause.
@@ -45,7 +50,7 @@ Configuration.TWEET_LEA_STOP = Configuration.USER_TWITTER + ' stop';
 Configuration.TEXT_LEA_PAUSE = '  Lea est en pause     elle se repose';
 
 Configuration.TEXT_LEA_START = '  Tweetez moi sur                          ' + Configuration.USER_TWITTER;
-Configuration.TEXT_LEA_START_UP = ' Prete a participer          au          Nantes Maker Campus';
+Configuration.TEXT_LEA_START_UP = fs.readFileSync(Configuration.WELCOME_MESSAGE, "utf8"); //' Prete a participer          au          Nantes Maker Campus';
 Configuration.TEXT_LEA_DEMO_ON = 'demo on';
 Configuration.TEXT_LEA_DEMO_OFF = 'demo off';
 
