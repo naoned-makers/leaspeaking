@@ -24,7 +24,7 @@
   },
   "scripts": {
     "test": "webpack --display-error-details && babel-node spec/jasmine-runner",
-    "start": "webpack --display-error-details && forever start ./dist/app.js",
+    "prod": "webpack && forever start ./dist/app.js",
     "build": "webpack --display-error-details",
     "stats": "webpack --env production --profile --json > stats.json",
     "forever": "forever"
