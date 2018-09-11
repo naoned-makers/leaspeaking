@@ -58,6 +58,15 @@ Faire le tweet de lancement avec un tweet : "@lea_nmakers start"
 
 Léa est prête à fonctionner
 
+## Modification du message d'acceuil 
+
+Pour modifier le message d'acceuil de Léa, il suffit de modifier le fichier welcomeMessage.txt présent à la racine du projet.
+Il est nécessaire de relancer Léa pour le prendre en compte, ce qui est possible avec les commandes :
+
+* forever stop 0 (où 0 est l'id forever du process lea)
+* npm start
+
+
 ## Connexion avec l'enceinte bluetooth
 
 Pour configurer une connexion auto du device, il faut ajouter AutoConnect=true au fichier /etc/bluetooth/audio.conf
