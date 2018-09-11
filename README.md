@@ -51,10 +51,9 @@ De plus le service ne fait qu'exécuter le script donc en cas de changement de c
 Créer un point d'accès nommé lea avec le mot de passe habituel.
 Se connecter sur le RPI (en général 192.168.43.58), SSID lea avec mot de passe habituel.
 Aller dans le répertoire ~/dev/lea/leaspeaking
-Faire un npm start 
+Faire un npm run prod 
 
-Une fois lancé Léa affiche "Prete pour le nantes maker campus"
-Faire le tweet de lancement avec un tweet : "@lea_nmakers start"
+Une fois lancé Léa affiche le message d'accuel genre "Prete pour le [nom de l'event]"
 
 Léa est prête à fonctionner
 
@@ -64,8 +63,15 @@ Pour modifier le message d'acceuil de Léa, il suffit de modifier le fichier wel
 Il est nécessaire de relancer Léa pour le prendre en compte, ce qui est possible avec les commandes :
 
 * forever stop 0 (où 0 est l'id forever du process lea)
-* npm start
+* npm run prod
 
+
+## Les scripts NPM
+
+Il y a trois scripts principaux :
+* npm run prod: lance lea en mode production c'est le script principal
+* npm run dev: lance lea en mode dev
+* npm run express: lance lea en mode arrache, il n'y a pas de reconstruction, le démarrage est plus rapide.
 
 ## Connexion avec l'enceinte bluetooth
 
