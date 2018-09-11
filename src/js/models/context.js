@@ -29,12 +29,6 @@ export default class Context {
         this.isTweetDisplayed = false;
         this.tweetDisplayed = false;
 
-        /*
-         * Indique si Léa est en état de marche ou pas.
-         * Léa est désactivable à distance par l'intermédiaire
-         * d"un envoi de tweet. Elle réactivable par le même biai.
-         */
-        this.isLeaSpeaking  = false;
 
         /*
          * Indique le numéro d'arrivée du tweet.

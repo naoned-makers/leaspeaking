@@ -118,31 +118,6 @@ export const isDemoOn = (tweet) => tweet
   .toLowerCase()
   .indexOf(Configuration.TEXT_LEA_DEMO_ON.toString().toLowerCase()) != -1;
 
-/**
- * Permets de démarrer ou de stopper Léa par l'envoi d'un
- * simple tweet. L'expéditeur doit faire parti des ADMINS
- * et doit respecter un formalisme de texte.
- *
- * @param tweet le tweet reçu
- */
-export const startAndStopLea = (tweet, clusterArduino, context) => {
-
-  if (isAdmin(tweet.screenName)) {
-    logger.log('debug', 'Je suis un admin');
-    if (tweet.text.startsWith(Configuration.TWEET_LEA_STOP)) {
-      logger.log('debug', 'tweet de stop');
-      tweet.isSpecial = true;
-      context.isLeaSpeaking = false;
-      clusterArduino.send(generatePauseTweet());
-    } else if (tweet.text.startsWith(Configuration.TWEET_LEA_START)) {
-      logger.log('debug', 'tweet de start');
-      tweet.isSpecial = true;
-      context.isLeaSpeaking = true;
-      playSound("bonjourMakerFaire");
-      clusterArduino.send(generateStartTweet());
-    }
-  }
-};
 
 /**
  * Génère et renvoie un squelette de tweet

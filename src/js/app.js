@@ -67,14 +67,10 @@ if (cluster.isMaster) {
     let tweet = msg.tweet;
 
     if (msg.action == Configuration.processConst.ACTION.SHOW_TWEET) {
-      // Gestion de l'arrêt et du redémarrage à distance de Léa
-      Utils.startAndStopLea(tweet, clusterArduino, context);
-
       logger.log('debug', 'Tweet spécial : ' + tweet.isSpecial);
-      logger.log('debug', 'LeaSpeaking : ' + context.isLeaSpeaking);
 
       // Configuration et stockage d'un tweet récemment reçu
-      if (context.isLeaSpeaking && !tweet.isSpecial) {
+      if (!tweet.isSpecial) {
         logger.log('info', "Ajout du nouveau tweet dans la file d'attente...");
         context
           .freshTweets
@@ -101,7 +97,6 @@ if (cluster.isMaster) {
   clusterArduino.on('message', function (msg) {
     context.isTweetDisplayed = false;
     let tweet = msg.tweet;
-    if (context.isLeaSpeaking) {
       if (msg.action == Configuration.processConst.ACTION.END_SHOW_TWEET_ON_ARDUINO) {
         Utils.saveTweet(tweet);
 
@@ -123,7 +118,7 @@ if (cluster.isMaster) {
       // Si des tweets plus récent sont apparu, on les affiche
       if (context.freshTweets.length > 0) {
         let freshTweet = context.freshTweets[0];
-        if (!context.isTweetDisplayed && context.tweetDisplayed != freshTweet && context.isLeaSpeaking) {
+        if (!context.isTweetDisplayed && context.tweetDisplayed != freshTweet) {
           context.isTweetDisplayed = true;
           clusterArduino.send(freshTweet);
         }
@@ -144,8 +139,6 @@ if (cluster.isMaster) {
           clusterArduino.send(historicTweet);
         }
       }
-
-    }
   });
 
   // Quand le worker arduino est opérationnel, nous affichons le tweet de bienvenue ainsi que

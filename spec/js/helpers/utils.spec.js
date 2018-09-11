@@ -5,10 +5,6 @@ import Context from "../../../src/js/models/context";
 
 import fs from 'fs';
 
-/* FUNCTION TO BE TESTED
-    static startAndStopLea(tweet, clusterArduino, context) {
-*/
-
 // Test getRandomMotion function
 describe("renvoie un mouvement aléatoire", function () {
 
