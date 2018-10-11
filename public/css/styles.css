@@ -6,6 +6,7 @@
   body {
     height: 100%;
     background-color: #4791D2;
+    background-image: url("../img/lea.jpg");
   }
   
   body {
@@ -17,6 +18,9 @@
     margin-top: 80px;
   }
   
+  .row-title {
+    margin-top: 20px;
+  }
   .upload-btn {
     color: #ffffff;
     background-color: #F89406;
@@ -32,6 +36,10 @@
     border: none;
   }
   
+  #sound-name {
+      margin-bottom: 10px;
+      width: 300px;
+  }
   h4 {
     padding-bottom: 30px;
     color: #B8BDC1;
@@ -47,7 +55,7 @@
     color: #68757E;
   }
   
-  .panel {
+  .panel-file {
     padding-top: 20px;
     padding-bottom: 20px;
   }

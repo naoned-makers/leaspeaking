@@ -12,25 +12,39 @@
 </head>
 <body>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <span class="glyphicon glyphicon-cloud-upload"></span>
-            <h2>File Uploader</h2>
-            <h4>coligo.io</h4>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar"></div>
+<form id="data" action="/" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row-title">w
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                      <h1>ADMIN LEA</h1>
+                    </div>
+                </div>
             </div>
-            <button class="btn btn-lg upload-btn" type="button">Upload File</button>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-file panel-default">
+                    <div class="panel-body">
+                        <span class="glyphicon glyphicon-cloud-upload"></span>
+                        <h2>Ajout d'un son</h2>
+                        <input id="sound-name" type="text" placeholder="Nom obligatoire"/>
+                        <div class="progress">
+                        <div class="progress-bar" role="progressbar"></div>
+                        </div>
+                        <button class="btn btn-lg upload-btn" type="button">Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <input id="upload-input" type="file" name="uploads[]" multiple="multiple"></br>
+  <input id="upload-input" type="file" name="vpd" multiple="multiple" ></br>
+  <input type="submit" value="Upload">
+</form>
 
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
