@@ -190,32 +190,12 @@ Configuration.sounds = [
     alternativeText: Configuration.USER_TWITTER + " BienvenueSuave",
     mp3: "BienvenueSuave"
   }, {
-    text: "ChaudDesaltere",
-    alternativeText: Configuration.USER_TWITTER + " ChaudDesaltere",
-    mp3: "ChaudDesaltere"
-  }, {
-    text: "GratinDauphinois",
-    alternativeText: Configuration.USER_TWITTER + " GratinDauphinois",
-    mp3: "GratinDauphinois"
-  }, {
     text: "ILoveYou",
     alternativeText: Configuration.USER_TWITTER + " ILoveYou",
     mp3: "ILoveYou"
-  }, {
-    text: "LeaBelle",
-    alternativeText: Configuration.USER_TWITTER + " LeaBelle",
-    mp3: "LeaBelle"
-  }, {
-    text: "PasDeBras",
-    alternativeText: Configuration.USER_TWITTER + " PasDeBras",
-    mp3: "PasDeBras"
-  }, {
+  },  {
     text: "RobotPrefere",
     alternativeText: Configuration.USER_TWITTER + " RobotPrefere",
     mp3: "RobotPrefere"
-  }, {
-    text: "SentirEte",
-    alternativeText: Configuration.USER_TWITTER + " SentirEte",
-    mp3: "SentirEte"
   }
 ];
